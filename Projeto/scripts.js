@@ -32,7 +32,7 @@ function Link(props){
 
 function Botao(btn){
   let classes = "botao"
-  if (props.desabilitado === true) {
+  if (btn.desabilitado) {
     classes += " botao--desabilitado"
   }
   return (
@@ -48,7 +48,8 @@ const paginaLogin = (
   <h1>Login</h1>
   <p>Entre com seu e-mail e Senha.</p>
   <Link url="/conta">Criar uma Conta</Link>
-  <Botao desabilitado url="/conta" texto="Enviar"></Botao>
+  <Botao desabilitado texto="Enviar"></Botao>
+  <Botao texto="Enviar"></Botao>
   </main>
 )
 const divisaoProjeto = document.getElementById('projeto')
