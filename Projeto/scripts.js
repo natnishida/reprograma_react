@@ -8,13 +8,48 @@
 // ReactDOM.render(formularioLogin, divisaoProjeto)
 
 
-const linkCriarUmaConta = <a class="link" href="/conta">Criar uma Conta</a>
-const linkFazerLogin = <a class="link" href="/login">Fazer Login</a>
-const formularioLogin = (
-<form>
-{linkCriarUmaConta}
-{linkFazerLogin}
-</form>
+
+// const linkCriarUmaConta = <a class="link" href="/conta">Criar uma Conta</a>
+// const linkFazerLogin = <a class="link" href="/login">Fazer Login</a>
+// const formularioLogin = (
+// <form>
+// {linkCriarUmaConta}
+// {linkFazerLogin}
+// </form>
+// )
+// const divisaoProjeto = document.getElementById('projeto')
+// ReactDOM.render(formularioLogin, divisaoProjeto)
+
+
+
+function Link(props){
+  return (
+    <a className="link" href={props.url}>
+    {props.children}
+    </a>
+  )
+}
+
+function Botao(btn){
+  let classes = "botao"
+  if (props.desabilitado === true) {
+    classes += " botao--desabilitado"
+  }
+  return (
+
+    <input className={classes} type="submit" value={btn.texto}/>
+
+  )
+
+}
+
+const paginaLogin = (
+  <main className="pagina-login">
+  <h1>Login</h1>
+  <p>Entre com seu e-mail e Senha.</p>
+  <Link url="/conta">Criar uma Conta</Link>
+  <Botao desabilitado url="/conta" texto="Enviar"></Botao>
+  </main>
 )
 const divisaoProjeto = document.getElementById('projeto')
-ReactDOM.render(formularioLogin, divisaoProjeto)
+ReactDOM.render(paginaLogin, divisaoProjeto)
