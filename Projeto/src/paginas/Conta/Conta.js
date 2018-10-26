@@ -13,8 +13,8 @@ function Conta() {
     <Legenda htmlFor="nome">Nome:</Legenda>
     <Campo type="text" id="nome" name="nome" placeholder="Insira seu nome aqui"></Campo>
 
-    <Legenda htmlFor="telefone">Nome:</Legenda>
-    <Campo type="text" id="telefone" name="telefone" placeholder="Insira seu telefone aqui"></Campo>
+    <Legenda htmlFor="telefone">Telefone:</Legenda>
+    <Campo type="tel" id="telefone" name="telefone" placeholder="Insira seu telefone aqui"></Campo>
 
     <Legenda htmlFor="email">Email:</Legenda>
     <Campo type="email" id="email" name="email" placeholder="Insira seu e-mail aqui"></Campo>
