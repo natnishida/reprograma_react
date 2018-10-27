@@ -12,15 +12,24 @@ class Campo extends React.Component {
     }
 
     valida = (evento) => {
-      const alvo = evento.target
-      if (alvo.name === 'nome' && alvo.value === '') {
-        const state = {
-          erro: 'Campo Obrigatório'
-        }
 
-        this.setState(state)
+      const input = evento.target
+      console.log(input)
+
+      if (this.props.required && input.value.trim() === '') {
+        this.setState({erro: 'Campo Obrigatório'})
+      } else if (this.props.minLength && input.value.length < this.props.minLength) {
+        this.setState({erro: `Digite pelo menos ${this.props.minLength} caracteres`})
+      } else if (this.props.pattern && !this.props.pattern.test(input.value)) {
+        this.setState({erro: 'Email não válido'})
       }
+
+      else {this.setState({erro:''})
+        }
     }
+
+
+
 
     render() {
       return (
