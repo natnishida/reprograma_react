@@ -1,13 +1,13 @@
 import React from 'react'
 import './Botao.css'
 
-function Botao(btn){
+function Botao(props){
   let classes = "botao"
-  if (btn.desabilitado) {
+  if (props.desabilitado) {
     classes += " botao--desabilitado"
   }
   return (
-    <input className={classes} type="submit" value={btn.texto}/>
+    <input className={classes} disabled={props.desabilitado} type="submit" value={props.texto}/>
   )
 }
 

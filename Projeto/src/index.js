@@ -7,7 +7,7 @@ import Login from './paginas/Login/Login'
 import Conta from './paginas/Conta/Conta'
 
 
-const pagina = <Conta />
+const pagina = <Login />
 
 const divisaoProjeto = document.getElementById('projeto')
 ReactDOM.render(pagina, divisaoProjeto)

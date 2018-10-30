@@ -5,11 +5,15 @@ class Campo extends Component {
   constructor(props) {
     super(props)
       this.state = {
+        modificado: false,
         erro: ''
       }
-
+      }
+    temErro() {
+      return !this.state.modificado || this.state.erro ? true : false
+      }
       // this.valida = this.valida.bind(this)
-    }
+
 
     valida = (evento) => {
 
@@ -30,7 +34,8 @@ class Campo extends Component {
         mensagem = 'Email não válido'}
 
 
-      this.setState({erro: mensagem})
+      this.setState({modificado: true, erro: mensagem}, this.props.onChange)
+
 
     }
 
