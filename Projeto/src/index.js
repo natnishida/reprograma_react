@@ -1,13 +1,34 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Link from './components/Link/Link'
-import Botao from './components/Botao/Botao'
-import './index.css'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Login from './paginas/Login/Login'
 import Conta from './paginas/Conta/Conta'
+import QuemSomos from './paginas/QuemSomos/QuemSomos'
+import Contato from './paginas/Contato/Contato'
+import './index.css'
 
 
-const pagina = <Conta />
+function App() {
+  return (
 
-const divisaoProjeto = document.getElementById('projeto')
-ReactDOM.render(pagina, divisaoProjeto)
+    <div className="app">
+        {/*NavBar*/}
+
+        <Switch>
+            <Route path="/" exact component={Login} />
+            <Route path="/conta" component={Conta} />
+            <Route path="/login" component={Login} />
+            <Route path="/quem-somos" component={QuemSomos} />
+            <Route path="/Contato" component={Contato} />
+        </Switch>
+
+    </div>
+  )
+}
+
+ReactDOM.render(
+  <BrowserRouter>
+      <App />
+  </BrowserRouter>,
+  document.getElementById('projeto')
+)
