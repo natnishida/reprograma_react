@@ -11,7 +11,7 @@ class Login extends Component {
     super(props)
       this.emailRef = React.createRef()
       this.senhaRef = React.createRef()
-      this.state = { modificado: false, desabilitado: true }
+      this.state = { desabilitado: true }
   }
 
   handleChange = () => {

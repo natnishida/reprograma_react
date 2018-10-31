@@ -9,7 +9,7 @@ class Campo extends Component {
         erro: ''
       }
       }
-    temErro() {
+    temErro = () => {
       return !this.state.modificado || this.state.erro ? true : false
       }
       // this.valida = this.valida.bind(this)
