@@ -14,6 +14,19 @@ class Login extends Component {
       this.state = { desabilitado: true }
   }
 
+
+enviaDados = (evento) => {
+    evento.preventDefault()
+    const dados = {
+      email: this.emailRef.current.getValor(),
+      senha: this.senhaRef.current.getValor()
+    }
+
+    this.props.onEnviar(dados)
+    this.props.historico.push('/')
+}
+
+
   handleChange = () => {
     const campoEmail = this.emailRef.current
     const campoSenha = this.senhaRef.current
@@ -31,7 +44,7 @@ class Login extends Component {
               <main className="login">
                     <h1>Login</h1>
                     <p>Entre com seu e-mail e Senha.</p>
-
+              <form onSubmit={this.enviaDados}>
                     <Legenda htmlFor="email">Email:</Legenda>
                     <Campo ref={this.emailRef} type="email" id="email" name="email" placeholder="Insira seu e-mail aqui" required onChange={this.handleChange}></Campo>
 
@@ -39,7 +52,7 @@ class Login extends Component {
                     <Campo ref={this.senhaRef} type="password" id="senha" name="senha" placeholder="Insira sua senha aqui" required minLength={6} onChange={this.handleChange}></Campo>
 
                     <Botao desabilitado={this.state.desabilitado} texto="Enviar"></Botao>
-
+              </form>
                     <Link url="/conta">Criar uma Conta</Link>
               </main>
       )}

@@ -4,10 +4,15 @@ import './Campo.css'
 class Campo extends Component {
   constructor(props) {
     super(props)
+      this.valor= ''
       this.state = {
         modificado: false,
         erro: ''
       }
+      }
+
+      getValor(){
+        return this.valor
       }
     temErro = () => {
       return !this.state.modificado || this.state.erro ? true : false
@@ -35,7 +40,7 @@ class Campo extends Component {
 
 
       this.setState({modificado: true, erro: mensagem}, this.props.onChange)
-
+      this.valor= value
 
     }
 
