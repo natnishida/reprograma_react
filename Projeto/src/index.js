@@ -7,6 +7,7 @@ import QuemSomos from './paginas/QuemSomos/QuemSomos'
 import Contato from './paginas/Contato/Contato'
 import NaoEncontrada from './paginas/NaoEncontrada/NaoEncontrada'
 import Home from './paginas/Home/Home'
+import Navbar from './components/Navbar/Navbar'
 import './index.css'
 
 
@@ -18,11 +19,16 @@ function logaUsuario(dados) {
   usuario = dados
 }
 
+function deslogaUsuario() {
+  localStorage.removeItem('usuario')
+  usuario = null
+}
+
 function App() {
   return (
 
     <div className="app">
-        {/*NavBar*/}
+        <Navbar usuario={usuario} deslogaUsuario = {deslogaUsuario}/>
 
         <Switch>
             <Route path="/" exact render={() => {

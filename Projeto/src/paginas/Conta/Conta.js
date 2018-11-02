@@ -48,7 +48,7 @@ render() {
 
   <Botao desabilitado={this.state.desabilitado} texto="Enviar"></Botao>
 
-  <Link url="/conta">Fazer Login</Link>
+  <Link url="/login">Fazer Login</Link>
   </main>
 )
 }
