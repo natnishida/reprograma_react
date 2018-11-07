@@ -1,4 +1,5 @@
 import React , { Component } from 'react'
+import { connect } from 'react-redux'
 import Link from '../../components/Link/Link'
 import Botao from '../../components/Botao/Botao'
 import Legenda from '../../components/Legenda/Legenda'
@@ -23,7 +24,7 @@ enviaDados = (evento) => {
     }
 
     this.props.logaUsuario(dados)
-    this.props.historico.push('/')
+    this.props.history.push('/')
 }
 
 
@@ -57,4 +58,21 @@ enviaDados = (evento) => {
               </main>
       )}
 }
-export default Login
+function passaAcoesNoProps(dispatch) {
+  return {
+    logaUsuario: (dados) => {
+      const acao = {
+        type: 'LOGA_USUARIO',
+        dados: dados
+      }
+
+      dispatch(acao)
+    }
+  }
+}
+
+const conectaNaStore = connect(null, passaAcoesNoProps)
+
+const LoginConectado = conectaNaStore(Login)
+
+export default LoginConectado
