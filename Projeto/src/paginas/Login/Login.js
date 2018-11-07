@@ -22,7 +22,7 @@ enviaDados = (evento) => {
       senha: this.senhaRef.current.getValor()
     }
 
-    this.props.onEnviar(dados)
+    this.props.logaUsuario(dados)
     this.props.historico.push('/')
 }
 
