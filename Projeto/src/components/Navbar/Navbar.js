@@ -17,29 +17,5 @@ function Navbar(props){
   )
 }
 
-function passaNoPropsDadosDoEstado(state) {
-  return {
-    usuario: state.usuario
-  }
-}
-
-function passaNoPropsDisparadoresDeAcao(dispatch) {
-  return {
-    deslogaUsuario: () => {
-      const acao = {
-        type: 'DESLOGA_USUARIO'
-      }
-
-      dispatch(acao)
-    }
-  }
-}
-
-const conectaNaStore = connect(
-  passaNoPropsDadosDoEstado,
-  passaNoPropsDisparadoresDeAcao
-)
-
-const NavbarConectado = conectaNaStore(Navbar)
-
-export default withRouter(NavbarConectado)
+export default withRouter(connect((state) => ({usuario: state.usuario}),
+    (dispatch) => ({deslogaUsuario: () => {dispatch({type: 'DESLOGA_USUARIO'})}}))(Navbar))
