@@ -9,3 +9,16 @@ export function logaUsuario(dados) {
     // quando o atributo é igual ao seu valor, podemos so colocar dados ao inves de dados:dados
   }
 }
+
+export function deslogaUsuario() {
+  return {
+    type: 'DESLOGA_USUARIO'
+  }
+}
+
+export function cadastraPostit(dados) {
+  return {
+    type: 'CADASTRA_POSTIT',
+    dados
+  }
+}
