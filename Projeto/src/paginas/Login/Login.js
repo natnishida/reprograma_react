@@ -1,12 +1,15 @@
 import React , { Component } from 'react'
 import { connect } from 'react-redux'
 import { logaUsuario } from '../../redux/actions'
+import { Redirect } from 'react-router-dom'
 import Link from '../../components/Link/Link'
 import Botao from '../../components/Botao/Botao'
 import Legenda from '../../components/Legenda/Legenda'
 import Campo from '../../components/Campo/Campo'
 import './Login.css'
 
+//123123
+//camilaibs@gmail.com
 
 class Login extends Component {
   constructor(props) {
@@ -25,7 +28,7 @@ enviaDados = (evento) => {
     }
 
     this.props.logaUsuario(dados)
-    this.props.history.push('/')
+
 }
 
 
@@ -42,6 +45,9 @@ enviaDados = (evento) => {
 
 
   render(){
+    if (this.props.usuario) {
+      return <Redirect to="/"/>
+    }
         return (
               <main className="login">
                     <h1>Login</h1>
@@ -63,6 +69,6 @@ enviaDados = (evento) => {
 
 
 
-const LoginConectado = connect(null, { logaUsuario })(Login)
+const LoginConectado = connect((state) => ({usuario: state.usuario}), { logaUsuario })(Login)
 
 export default LoginConectado
